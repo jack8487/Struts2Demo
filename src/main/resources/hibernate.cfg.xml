@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- 数据库连接设置 -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hdb</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <!-- 连接池配置（使用HikariCP） -->
+        <property name="hibernate.hikari.dataSourceClassName">com.mysql.cj.jdbc.MysqlDataSource</property>
+        <property name="hibernate.hikari.maximumPoolSize">10</property>
+
+        <!-- SQL方言 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- 显示SQL语句 -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- 自动更新表结构 -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- 映射实体类（或指定包扫描） -->
+        <mapping package="com.example.model"/>
+        <mapping resource="com/example/model/User.hbm.xml"/> <!-- 路径对应映射文件位置 -->
+    </session-factory>
+</hibernate-configuration>

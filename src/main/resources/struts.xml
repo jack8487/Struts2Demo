@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <package name="/" extends="struts-default" namespace="/">
+        <action name="login">
+            <result name="success">/jsp/login.jsp</result>
+        </action>
+    </package>
+    <package name="user" extends="struts-default" namespace="/user">
+        <action name="addAndupdate" class="com.example.action.UserAction">
+            <result name="success">/jsp/success.jsp</result>
+            <result name="login">/jsp/login.jsp</result>
+        </action>
+        <action name="delete" class="com.example.action.UserAction">
+            <result name="success">/jsp/success.jsp</result>
+        </action>
+        <action name="login">
+            <result name="login">/jsp/login.jsp</result>
+        </action>
+    </package>
+</struts>

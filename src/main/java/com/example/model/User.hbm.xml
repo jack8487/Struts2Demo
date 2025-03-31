@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.example.model.User" table="users">
+        <!-- 主键配置 -->
+        <id name="id" column="id" type="string">
+            <generator class="uuid2" /> <!-- 使用 Hibernate 的 UUID 生成策略 -->
+        </id>
+
+        <!-- 其他字段映射 -->
+        <property name="username" column="username" type="string" length="50" not-null="true" unique="true" />
+        <property name="password" column="password" type="string" length="255" not-null="true" />
+        <property name="email" column="email" type="string" length="100" not-null="true" unique="true" />
+        <property name="phoneNumber" column="phone_number" type="string" length="20" />
+        <property name="registrationDate" column="registration_date" type="timestamp" not-null="true" />
+    </class>
+</hibernate-mapping>
